@@ -5,8 +5,9 @@ class Invoice < ApplicationRecord
     return all unless start_date.present? && end_date.present?
 
     begin
-      parsed_start = Date.parse(start_date)
-      parsed_end = Date.parse(end_date)
+      parsed_start = Date.parse(start_date).beginning_of_day.in_time_zone
+      parsed_end = Date.parse(end_date).end_of_day.in_time_zone
+
       where(invoice_date: parsed_start..parsed_end)
     rescue ArgumentError
       none
