@@ -1,0 +1,57 @@
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+  }
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 6px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  h1 {
+    color: #333333;
+    text-align: center;
+  }
+  p {
+    font-size: 16px;
+    color: #555555;
+  }
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  .footer {
+    margin-top: 30px;
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+  }
+</style>
+
+<div class="container">
+  <h1>Top 10 días con más ventas</h1>
+  <p>Hola,</p>
+  <p>Este es el reporte automático de los 10 días donde más se vendió:</p>
+  <ul>
+  <% @top_sales.each do |sale| %>
+      <li>
+      <strong><%= sale.day.strftime("%d/%m/%Y") %></strong> — $<%= number_to_currency(sale.total_sales, unit: "$") %>
+      </li>
+  <% end %>
+  </ul>
+  <p>¡Que tengas un excelente día!</p>
+
+  <div class="footer">
+  Este correo fue generado automáticamente por el sistema.
+  </div>
+</div>

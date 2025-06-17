@@ -4,6 +4,6 @@
 
 :schedule:
   simple_test_job:
-    cron: "*/1 * * * *"
+    cron: "0 10 * * *" # todos las mañanas a las 10:00 a.m.
     class: "DailyTopSalesReportJob"
     queue: default

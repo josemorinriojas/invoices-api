@@ -13,4 +13,11 @@ class Invoice < ApplicationRecord
       none
     end
   end
+
+  def self.top_sales_days(limit = 10)
+    group("DATE(invoice_date)")
+      .select("DATE(invoice_date) as day, SUM(total) as total_sales")
+      .order("total_sales DESC")
+      .limit(limit)
+  end
 end
