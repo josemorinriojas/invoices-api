@@ -14,6 +14,9 @@ gem "kamal", require: false
 
 gem "thruster", require: false
 gem 'active_model_serializers', '~> 0.10.0'
+gem 'redis'
+gem 'sidekiq'
+gem 'sidekiq-scheduler', '>= 4.0.0'
 
 group :development, :test do
   gem "brakeman", require: false

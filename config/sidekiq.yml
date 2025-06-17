@@ -1,0 +1,9 @@
+:concurrency: 5
+:queues:
+  - default
+
+:schedule:
+  simple_test_job:
+    cron: "*/1 * * * *"
+    class: "SimpleTestJob"
+    queue: default
