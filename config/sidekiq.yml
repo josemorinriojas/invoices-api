@@ -5,5 +5,5 @@
 :schedule:
   simple_test_job:
     cron: "*/1 * * * *"
-    class: "SimpleTestJob"
+    class: "DailyTopSalesReportJob"
     queue: default

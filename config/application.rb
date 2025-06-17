@@ -30,5 +30,7 @@ module InvoicesApi
     config.api_only = true
     config.middleware.use ActionDispatch::Cookies
     config.middleware.use ActionDispatch::Session::CookieStore, key: "_#{Rails.application.class.module_parent_name.underscore}_session"
+
+    config.action_mailer.view_paths = ActionController::Base.view_paths
   end
 end
