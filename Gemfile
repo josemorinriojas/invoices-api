@@ -19,6 +19,8 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler', '>= 4.0.0'
 
 group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_bot_rails'
   gem "brakeman", require: false
   gem "rubocop-rails-omakase", require: false
 

@@ -20,8 +20,9 @@ class Invoice < ApplicationRecord
     active
       .group("DATE(invoice_date)")
       .select("DATE(invoice_date) as day, SUM(total) as total_sales")
-      .order("total_sales DESC")
+      .order("SUM(total) DESC")
       .limit(limit)
+
   end
 
   private
