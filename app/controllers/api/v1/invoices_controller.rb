@@ -9,7 +9,7 @@ module Api
       private
 
       def load_collection
-        @invoices = Invoice.filter(params[:start_date], params[:end_date])
+        @invoices = Invoice.filter_with_cache(params[:start_date], params[:end_date])
       end
     end
   end

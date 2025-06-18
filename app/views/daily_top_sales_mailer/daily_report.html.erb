@@ -40,12 +40,12 @@
 
 <div class="container">
   <h1>Top 10 días con más ventas</h1>
-  <p>Hola,</p>
+  <p>Hola, <%= @email %>.</p>
   <p>Este es el reporte automático de los 10 días donde más se vendió:</p>
   <ul>
   <% @top_sales.each do |sale| %>
       <li>
-      <strong><%= sale.day.strftime("%d/%m/%Y") %></strong> — $<%= number_to_currency(sale.total_sales, unit: "$") %>
+      <strong><%= sale.day.strftime("%d/%m/%Y") %></strong> — <%= number_to_currency(sale.total_sales, unit: "$") %>
       </li>
   <% end %>
   </ul>
