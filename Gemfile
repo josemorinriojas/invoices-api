@@ -17,6 +17,8 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'redis'
 gem 'sidekiq'
 gem 'sidekiq-scheduler', '>= 4.0.0'
+gem 'rack-cors'
+gem 'kaminari'
 
 group :development, :test do
   gem 'rspec-rails'

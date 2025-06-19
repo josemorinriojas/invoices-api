@@ -1,15 +1,17 @@
 module Api
   module V1
     class InvoicesController < ApplicationController
+      include Paginatable
+
       def index
         invoices = load_collection
-        render json: invoices
+        paginate(invoices)
       end
 
       private
 
       def load_collection
-        @invoices = Invoice.filter_with_cache(params[:start_date], params[:end_date])
+        Invoice.filter_with_cache(params[:start_date], params[:end_date])
       end
     end
   end
