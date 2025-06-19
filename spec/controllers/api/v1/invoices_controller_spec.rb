@@ -26,12 +26,17 @@ RSpec.describe Api::V1::InvoicesController, type: :controller do
     end
 
     context 'without dates' do
-      it 'still returns success and falls back to defaults' do
+      it 'returns paginated invoices with metadata' do
         get :index, format: :json
         expect(response).to have_http_status(:success)
 
         json = JSON.parse(response.body)
-        expect(json).to be_an(Array)
+
+        expect(json).to have_key('data')
+        expect(json['data']).to be_an(Array)
+
+        expect(json).to have_key('meta')
+        expect(json['meta']).to include('current_page', 'per_page', 'total_count', 'total_pages')
       end
     end
   end
